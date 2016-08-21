@@ -5,8 +5,7 @@ var $caption = $("<p></p>");
 var $nextPhoto = $("#nextPhoto");
 var $prevPhoto = $("#prevPhoto");
 var itemArray = []; // create array to fill with images
-var counter = 0; // set global counter to zero
-
+var counter = 0;
 //OVERLAY
 
 //add image to overlay
@@ -24,7 +23,15 @@ $("body").append($overlay);
 // when image is clicked..
 $('#imageGallery a').click(function(event){
 event.preventDefault();
+counter = 0;
+i = 0;
 var imageLocation = $(this).attr("href");
+$('#imageGallery a').each(function(){
+  i++;
+  if ($(this).attr("href") === imageLocation ) {
+          counter = i - 1;
+  }
+});
 
 // grab image
 $image.attr("src", imageLocation);
@@ -89,6 +96,8 @@ if (altText.indexOf(term) > -1) {
 
 populateArray();
 
+// when in overlay (after searching) - hide elements that don't match criteria
+
 // ARROWS
 
 function getNextItem() {
@@ -114,6 +123,7 @@ updateOverlay();
 }
 
 function updateOverlay() {
+
 $image.attr("src", itemArray[counter].itemURL);
 $caption.text(itemArray[counter].itemCaption);
 

@@ -102,19 +102,22 @@ ul li {
 
 #prevPhoto, #nextPhoto {
   font-size: 40px;
-  color: white;
+  color: #ededed;
+  z-index: 102;
 }
 
 #prevPhoto {
-  float: left;
-  margin-left: 140px;
-  margin-top: -320px;
+  display: inline-block;
+  top: 27vw;
+  left: 100px;
+  position: absolute;
 }
 
 #nextPhoto {
-  float: right;
-  margin-right: 140px;
-  margin-top: -320px;
+  display: inline-block;
+  top: 27vw;
+  right: 100px;
+  position: absolute;
 }
 
 #prevPhoto:hover, #nextPhoto:hover {
